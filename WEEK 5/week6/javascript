@@ -1,0 +1,104 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // BUTTON EVENT HANDLING
+
+  const colorBtn = document.getElementById("colorBtn");
+
+  // Basic click event: toggle background color
+  colorBtn.addEventListener("click", () => {
+    if (colorBtn.style.backgroundColor === "lightblue") {
+      colorBtn.style.backgroundColor = "#3498db";
+    } else {
+      colorBtn.style.backgroundColor = "lightblue";
+    }
+  });
+
+  // Hover effects: scale up on mouseover, revert on mouseout
+  colorBtn.addEventListener("mouseover", () => {
+    colorBtn.style.transform = "scale(1.1)";
+  });
+  colorBtn.addEventListener("mouseout", () => {
+    colorBtn.style.transform = "scale(1)";
+  });
+
+  // Bonus: Double-click action - toggle button text
+  colorBtn.addEventListener("dblclick", () => {
+    colorBtn.innerText =
+      colorBtn.innerText === "Change Color"
+        ? "Double-click Activated!"
+        : "Change Color";
+  });
+
+  // KEY PRESS DETECTION
+  document.addEventListener("keypress", (event) => {
+    console.log(`Key pressed: ${event.key}`);
+  });
+
+  // INTERACTIVE ELEMENTS: Accordion functionality
+  const accordionButtons = document.querySelectorAll(".accordionBtn");
+  accordionButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("active");
+      const content = btn.nextElementSibling;
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+  });
+
+  // FORM VALIDATION
+
+  const signupForm = document.getElementById("signupForm");
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
+  const emailError = document.getElementById("emailError");
+  const passwordError = document.getElementById("passwordError");
+
+  // Validate on form submission
+  signupForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let valid = true;
+
+    // Reset the error messages
+    emailError.textContent = "";
+    passwordError.textContent = "";
+
+    // Email field checks: non-empty and proper email format
+    const emailValue = emailInput.value.trim();
+    if (emailValue === "") {
+      emailError.textContent = "Email is required.";
+      valid = false;
+    } else if (!validateEmail(emailValue)) {
+      emailError.textContent = "Invalid email format.";
+      valid = false;
+    }
+
+    // Password field checks: non-empty and minimum character length
+    const passwordValue = passwordInput.value.trim();
+    if (passwordValue === "") {
+      passwordError.textContent = "Password is required.";
+      valid = false;
+    } else if (passwordValue.length < 8) {
+      passwordError.textContent = "Password must be at least 8 characters.";
+      valid = false;
+    }
+
+    if (valid) {
+      alert("Form submitted successfully!");
+      // Optionally, you could clear the form here:
+      signupForm.reset();
+    }
+  });
+
+  // Real-time email validation feedback
+  emailInput.addEventListener("input", () => {
+    if (emailInput.value.trim() !== "" && !validateEmail(emailInput.value.trim())) {
+      emailError.textContent = "Invalid email format.";
+    } else {
+      emailError.textContent = "";
+    }
+  });
+
+  // Utility: Email format validation using a regular expression
+  function validateEmail(email) {
+    const pattern = /^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i;
+    return pattern.test(email);
+  }
+});

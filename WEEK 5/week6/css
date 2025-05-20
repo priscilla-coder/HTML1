@@ -1,0 +1,53 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* Button Styles */
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: #3498db;
+  color: #fff;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Gallery Image Styling */
+.gallery img {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+}
+
+/* Accordion Styles */
+.accordion .accordionContent {
+  display: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.accordionBtn.active {
+  background-color: #ddd;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+}

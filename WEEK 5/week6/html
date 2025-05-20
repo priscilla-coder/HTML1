@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JS Event & Interactivity Assignment</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Interactive Web Experience</h1>
+
+  <!-- Button with event listeners -->
+  <button id="colorBtn">Change Color</button>
+
+  <!-- Image gallery / slideshow placeholder -->
+  <div class="gallery">
+    <img src="https://images.pexels.com/photos/8007002/pexels-photo-8007002.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load" alt="Gallery Image" id="galleryImage" />
+  </div>
+
+  <!-- Accordion-style interactive element -->
+  <div class="accordion">
+    <button class="accordionBtn">Accordion 1</button>
+    <div class="accordionContent">
+      <p>This content is revealed when you click Accordion 1.</p>
+    </div>
+    <button class="accordionBtn">Accordion 2</button>
+    <div class="accordionContent">
+      <p>This content is revealed when you click Accordion 2.</p>
+    </div>
+  </div>
+
+  <!-- Form with validation -->
+  <form id="signupForm" novalidate>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <span class="error" id="emailError"></span>
+    </div>
+    <div class="form-group">
+      <label for="password">Password (min 8 characters):</label>
+      <input type="password" id="password" name="password" required minlength="8" />
+      <span class="error" id="passwordError"></span>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
